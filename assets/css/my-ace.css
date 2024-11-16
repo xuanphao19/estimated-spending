@@ -1,0 +1,278 @@
+.code-demo {
+  position: relative;
+  margin-top: 100px;
+  padding: 10px 30px;
+  border-radius: 16px;
+  background: #272822;
+  border: 0.5rem solid #545454;
+  box-shadow: 1px 1px 0.5em black inset;
+}
+.code-demo > svg {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  z-index: 999;
+}
+.demo-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.demo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f8f8f8;
+  padding: 10px 18px 10px 0;
+  margin-block: 0;
+  background: #0000;
+}
+.flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  width: 32px;
+  height: 32px;
+}
+
+.utilities {
+  display: flex;
+  align-items: center;
+}
+
+#btn-copy.active {
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.btn-util {
+  position: relative;
+  color: #f8f8f828;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 1s linear, color 0.3s linear;
+}
+
+.btn-util:hover {
+  color: #f8f8f8a8;
+}
+
+#btn-copy.btn-util.active::after {
+  visibility: visible;
+  z-index: 999;
+  opacity: 1;
+}
+
+#btn-copy.btn-util::after {
+  content: "Copied code !";
+  width: max-content;
+  color: #f8f8f8;
+  background: #113d00;
+}
+
+#btn-copy::after,
+.btn-util::before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "Copy code";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  translate: -100% -50%;
+  padding: 8px 20px;
+  min-width: 120px;
+  font-size: 16px;
+  text-align: center;
+  background: #000;
+  border-radius: 6px;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  border: 1px solid #f8f8f888;
+  transition: visibility 0.3s linear, color 0.3s linear, opacity 0.3s linear;
+}
+.btn-util:hover::before {
+  animation: fadeOut 1s forwards;
+}
+@keyframes fadeOut {
+  0%,
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  30% {
+    visibility: visible;
+    opacity: 1;
+    color: #f8f8f8b8;
+  }
+  70% {
+    visibility: visible;
+    opacity: 1;
+    color: #f8f8f8b8;
+  }
+}
+
+.fullscreen .zoom,
+.fullscreen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.fullscreen .zoom {
+  position: absolute;
+  inset: 0;
+  padding: 8px;
+  transition: background-color 0.3s linear, color 0.3s linear;
+}
+
+.fullscreen .zoom-in::before {
+  content: "Zoom In";
+}
+
+.fullscreen .zoom-out::before {
+  content: "Zoom Out";
+}
+
+:fullscreen .zoom-out {
+  z-index: 1;
+}
+
+.btn-util.zoom:hover {
+  color: #f8f8f8;
+  background-color: #272822;
+}
+
+#editor {
+  width: 100%;
+  min-height: 200px;
+  margin-block: 1rem;
+  line-height: 1.5;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0.5em black inset;
+  border: 0.2rem solid #343434;
+}
+
+.ace_text-layer {
+  width: 100%;
+}
+
+.ace-monokai,
+.ace-monokai .ace_marker-layer .ace_selection,
+.ace-monokai .ace_print-margin {
+  background: transparent;
+}
+
+.ace_content {
+  background: #141414;
+}
+
+.ctrl {
+  display: flex;
+  align-items: center;
+  padding-block: 8px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  margin-left: auto;
+  height: 42px;
+  border-radius: 6px;
+  color: #f8f8f888;
+  border: 1px solid currentColor;
+  background: #000;
+}
+
+.ctrl .btn:hover {
+  color: #ced0ff;
+}
+
+.result-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 20px 0;
+  height: 42px;
+  color: #f8f8f888;
+  cursor: auto !important;
+  border-radius: 4px;
+  background-color: #54545428;
+  transition: background-color 0.5s linear, color 0.8s linear;
+}
+
+.results-demo.current .result-title {
+  background-color: #031d92;
+  color: #f8f8f8;
+}
+
+#result {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  color: #f8f8f8;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: Consolas, Lucida Console, Menlo, Monaco, monospace;
+  transition: opacity 0.5s 0.2s linear, height 0.3s linear, padding 0.28s linear;
+}
+
+.results-demo.current #result {
+  height: auto;
+  padding: 16px 26px 16px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  background: #000;
+  border-radius: 4px;
+  border: 0.2rem solid #545454a4;
+  box-shadow: 1px 1px 0.8rem black inset;
+}
+
+.reset {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 8px;
+  font-size: 14px;
+  color: #f8f8f8f8;
+  background: #531500;
+  user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s linear, color 0.3s linear;
+}
+
+.reset:hover {
+  color: #f8f8f8;
+  opacity: 1;
+}
+
+:fullscreen #editor {
+  height: 45vh;
+}
+
+:fullscreen .code-demo {
+  width: 80vw !important;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  display: none !important;
+  width: 0;
+  border-radius: 0;
+  background: #0000;
+}
