@@ -59,8 +59,8 @@
         <div class="totals" id="total-expenses">Total Spent: 0₫</div>
 
         <div class="form-group">
-          <label for="expense-name">Tên khoản chi</label>
-          <input type="text" id="expense-name" placeholder="Nhập tên khoản chi">
+          <label for="expense-name">Tên - Khoản chi</label>
+          <input type="text" id="expense-name" autocomplete="on" placeholder="Nhập tên người và khoản chi">
         </div>
 
         <div class="form-group">
@@ -76,14 +76,20 @@
             <option value="Ăn uống">Ăn uống</option>
             <option value="Đi lại">Đi lại</option>
             <option value="Giải trí">Giải trí</option>
-            <option value="Khác">Khác</option>
+            <option value="Chi Khác">Khác</option>
           </select>
         </div>
 
-        <button id="add-expense">Thêm chi tiêu</button>
+        <button class="btn btn-info" id="add-expense">Thêm chi tiêu</button>
         <h2>Danh sách chi tiêu</h2>
-        <ul id="expense-list"></ul>
-
+        <div id="expense-list">
+          <ul id="edu"></ul>
+          <ul id="build"></ul>
+          <ul id="eatdrink"></ul>
+          <ul id="travel"></ul>
+          <ul id="entertain"></ul>
+          <ul id="other"></ul>
+        </div>
       </div>
     </section>
 
